@@ -68,7 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(
                       color: Colors.black87, decoration: TextDecoration.underline),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/login');
+                },
               ),
             ],
           )),
