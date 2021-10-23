@@ -41,53 +41,36 @@ class _RegisterPageState extends State<RegisterPage> {
                 width: 200.0,
                 child: Image.asset('assets/banner_pequeno.png')),
             TextFormField(
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Email',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  email = value!;
-                }),
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Email',
+              ),
+              validator: (input) => input == '' ? 'Digite um email' : null,
+              onSaved: (value) => email = value,
+            ),
             TextFormField(
-                obscureText: true,
-                //deixa a senha secreta
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Senha',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return '''O campo "senha" deve ser preenchido''';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  senha = value!;
-                }),
+              obscureText: true,
+              //deixa a senha secreta
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Senha',
+              ),
+              validator: (input) => input == '' ? 'Digite uma senha' : null,
+              onSaved: (value) => senha = value,
+            ),
             TextFormField(
-                obscureText: true,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Digite novamente a senha',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return '''O campo "senha" deve ser preenchido''';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  validaSenha = value!;
-                }),
+              obscureText: true,
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Digite novamente a senha',
+              ),
+              validator: (input) =>
+                  input == '' ? 'Repita novamente a senha' : null,
+              onSaved: (value) => validaSenha = value,
+            ),
             FloatingActionButton.extended(
               onPressed: () {
                 if (senha != validaSenha) {
@@ -96,7 +79,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     builder: (_) => _senhaInvalida(),
                     barrierDismissible: false,
                   );
-                } else {
+                } else if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
                 }
               },
@@ -108,7 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _senhaInvalida() {
     return AlertDialog(
-      title: Text('Erro.'),
+      title: Text('Erro'),
       content: Text('As senhas inseridas precisam ser iguais'),
       actions: [
         TextButton(

@@ -40,44 +40,34 @@ class _LoginPageState extends State<LoginPage> {
                 width: 200.0,
                 child: Image.asset('assets/banner_pequeno.png')),
             TextFormField(
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Email',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  email = value!;
-                }),
-            TextFormField(
-                obscureText: true,
-                //deixa a senha secreta
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Senha',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-                //maxLength: 10, coloca um limite no número de caracteres
-                onSaved: (value) {
-                  senha = value!;
-                }),
-            FloatingActionButton.extended(
-                onPressed: () {
-                  _formKey.currentState!.save();
-                },
-                label: Text("Entrar"),
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Email',
               ),
+              validator: (input) => input == '' ? 'Digite um email' : null,
+              onSaved: (value) => email = value,
+            ),
+            TextFormField(
+              obscureText: true,
+              //deixa a senha secreta
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Senha',
+              ),
+              validator: (input) => input == '' ? 'Digite uma senha' : null,
+              onSaved: (value) => senha = value,
+              //maxLength: 10, coloca um limite no número de caracteres;
+            ),
+            FloatingActionButton.extended(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                }
+              },
+              label: Text("Entrar"),
+            ),
           ],
         ));
   }
