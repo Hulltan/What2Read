@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'login.dart';
-import 'cadastro_login.dart';
+import 'View/login.dart';
+import 'View/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,11 +16,12 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.deepPurple,
         ),
+        debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
-          '/': (context) => MyHomePage(title: 'What2Read'),
-          '/login': (context) => LoginPage(title: "Login")
-        }
-    );
+          '/': (context) => HomePage(title: 'What2Read'),
+          '/login': (context) => LoginPage(title: "Login"),
+          '/cadastro': (context) => HomePage(title: "Cadastro"),
+        });
   }
 }

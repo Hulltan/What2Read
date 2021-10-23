@@ -12,12 +12,13 @@ class _LoginPageState extends State<LoginPage> {
   String? senha = '';
   String? email = '';
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title:
-          Center(child: Text(widget.title, textAlign: TextAlign.center))),
+        appBar: AppBar(
+            title:
+                Center(child: Text(widget.title, textAlign: TextAlign.center))),
         body: Container(
           margin: new EdgeInsets.all(20.0),
           child: new Form(
@@ -28,11 +29,11 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _formUI() {
     return Form(
-      key: _formKey,
+        key: _formKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-           crossAxisAlignment: CrossAxisAlignment.center,
-           // alignment: WrapAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          // alignment: WrapAlignment.center,
           children: <Widget>[
             Container(
                 height: 200.0,
@@ -52,10 +53,10 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 onSaved: (value) {
                   email = value!;
-                }
-            ),
+                }),
             TextFormField(
-                obscureText: true, //deixa a senha secreta
+                obscureText: true,
+                //deixa a senha secreta
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -70,25 +71,14 @@ class _LoginPageState extends State<LoginPage> {
                 //maxLength: 10, coloca um limite no número de caracteres
                 onSaved: (value) {
                   senha = value!;
-                }
-            ),
-
-            Container(
-              alignment: Alignment.bottomCenter,
-              child: FloatingActionButton.extended(
+                }),
+            FloatingActionButton.extended(
                 onPressed: () {
                   _formKey.currentState!.save();
-                  print(email);
-                  print(senha);
                 },
                 label: Text("Entrar"),
               ),
-            ),
           ],
-        )
-    );
+        ));
   }
 }
-
-
-
