@@ -16,14 +16,14 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title:
-                Center(child: Text(widget.title, textAlign: TextAlign.center))),
+        appBar: AppBar(centerTitle: true, title: Text(widget.title)),
         body: Container(
-          margin: new EdgeInsets.all(20.0),
-          child: new Form(
-            child: _formUI(),
+          padding: EdgeInsets.only(
+            left: 20,
+            right: 20,
           ),
+          margin: new EdgeInsets.all(20.0),
+          child: _formUI(),
         ));
   }
 
@@ -33,7 +33,6 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
-          // alignment: WrapAlignment.center,
           children: <Widget>[
             Container(
                 height: 200.0,
@@ -63,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
             FloatingActionButton.extended(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
+                  _formKey.currentState!.save();
                 }
               },
               label: Text("Entrar"),

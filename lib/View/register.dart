@@ -18,13 +18,15 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title:
-                Center(child: Text(widget.title, textAlign: TextAlign.center))),
+            centerTitle: true,
+            title:Text(widget.title)),
         body: Container(
-          margin: new EdgeInsets.all(20.0),
-          child: new Form(
-            child: _formUI(),
+          padding: EdgeInsets.only(
+            left: 20,
+            right: 20,
           ),
+          margin: EdgeInsets.all(20.0),
+          child: _formUI(),
         ));
   }
 
@@ -34,7 +36,6 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
-          // alignment: WrapAlignment.center,
           children: <Widget>[
             Container(
                 height: 200.0,

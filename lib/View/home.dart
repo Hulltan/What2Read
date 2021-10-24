@@ -12,43 +12,48 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title:
-              Center(child: Text(widget.title, textAlign: TextAlign.center))),
+      appBar: AppBar(title: Center(child: Text(widget.title))),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-              height: 200.0,
-              width: 200.0,
+              height: 250.0,
+              width: 250.0,
               child: Image.asset('assets/banner_pequeno.png')),
-          SizedBox(
-            width: 400,
-            height: 100,
-            child: Text(
-              'Lorem ipsum dolor sit amet. Aut optio perferendis non minima '
-              'voluptate a eaque ullam ut facere eius eos debitis ipsa '
-              'et culpa dolor. Sed laborum dolorum qui ipsam '
-              'esse et suscipit quam 33 '
-              'earum dolorem eos commodi dolore '
-              'rem accusantium explicabo. Est dignissimos'
-              ' rerum est quasi maiores non impedit earum '
-              'ad modi facere architecto porro non voluptates delectus.',
-              style: TextStyle(
-                color: Colors.black87,
+          Container(
+            padding: EdgeInsets.only(
+              left: 30,
+              right: 30,
+            ),
+            child: Flexible(
+              child: SizedBox(
+                height: 100,
+                child: Text(
+                  'Lorem ipsum dolor sit amet. Aut optio perferendis non minima '
+                  'voluptate a eaque ullam ut facere eius eos debitis ipsa '
+                  'et culpa dolor. Sed laborum dolorum qui ipsam '
+                  'esse et suscipit quam 33 '
+                  'earum dolorem eos commodi dolore '
+                  'rem accusantium explicabo. Est dignissimos'
+                  ' rerum est quasi maiores non impedit earum '
+                  'ad modi facere architecto porro non voluptates delectus.',
+                  style: TextStyle(
+                    color: Colors.black87,
+                  ),
+                  textDirection: TextDirection.ltr,
+                  textAlign: TextAlign.center,
+                ),
               ),
-              textDirection: TextDirection.ltr,
-              textAlign: TextAlign.center,
             ),
           ),
           FloatingActionButton.extended(
-              onPressed: () {
-                Navigator.pushNamed(context, '/cadastro');
-              },
-              label: Text("Cadastre-se"),
-            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/cadastro');
+            },
+            label: Text("Cadastre-se"),
+          ),
           TextButton(
             style: TextButton.styleFrom(
                 backgroundColor: Colors.white70, shadowColor: Colors.green),
