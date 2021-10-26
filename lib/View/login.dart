@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
-                  SingIn(email, senha, _formKey);
+                  SingIn(email, senha, _formKey, context);
                 }
               },
               label: Text("Entrar"),
