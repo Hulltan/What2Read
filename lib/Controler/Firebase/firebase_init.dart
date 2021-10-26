@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../main.dart';
+import '../../main.dart';
 
 // Estilos removidos do exemplo do Professor: https://github.com/gaaj-ufrpe/dsi_flutterfire_app/blob/master/lib/main.dart
 const errorTitleStyle = TextStyle(color: Colors.yellow, fontSize: 20.0);

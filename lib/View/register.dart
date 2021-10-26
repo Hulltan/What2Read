@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../Controler/Firebase/sing_up.dart';
 
 class RegisterPage extends StatefulWidget {
   RegisterPage({Key? key, required this.title}) : super(key: key);
@@ -9,9 +11,9 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  String? senha = '';
-  String? validaSenha = '';
-  String? email = '';
+  String senha = '';
+  String validaSenha = '';
+  String email = '';
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -48,7 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelText: 'Email',
               ),
               validator: (input) => input == '' ? 'Digite um email' : null,
-              onSaved: (value) => email = value,
+              onSaved: (value) => email = value!,
             ),
             TextFormField(
               obscureText: true,
@@ -59,7 +61,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelText: 'Senha',
               ),
               validator: (input) => input == '' ? 'Digite uma senha' : null,
-              onSaved: (value) => senha = value,
+              onSaved: (value) => senha = value!,
             ),
             TextFormField(
               obscureText: true,
@@ -70,7 +72,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               validator: (input) =>
                   input == '' ? 'Repita novamente a senha' : null,
-              onSaved: (value) => validaSenha = value,
+              onSaved: (value) => validaSenha = value!,
             ),
             FloatingActionButton.extended(
               onPressed: () {
@@ -82,6 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   );
                 } else if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
+                  SingUp(email, senha, _formKey.currentState, context);
                 }
               },
               label: Text("Cadastrar"),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 
 Future<void> SingUp(String email, String senha, _formKey, context) async{
   final auth = FirebaseAuth.instance;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:what2read/Controler/Firebase/sing_in.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key, required this.title}) : super(key: key);
@@ -64,25 +64,12 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
-                  SingIn();
+                  SingIn(email, senha, _formKey);
                 }
               },
               label: Text("Entrar"),
             ),
           ],
         ));
-  }
-  Future<void> SingIn() async{
-    final formState = _formKey.currentState;
-    if(formState!.validate()){
-      formState.save();
-      try{
-        await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: senha);
-        print('login aceito');
-        //Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const HomePage(),));
-      }catch(e){
-        print(e);
-      }
-    }
   }
 }
