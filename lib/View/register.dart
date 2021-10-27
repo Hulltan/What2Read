@@ -9,17 +9,15 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  String? senha = '';
-  String? validaSenha = '';
-  String? email = '';
+  String senha = '';
+  String validaSenha = '';
+  String email = '';
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            centerTitle: true,
-            title:Text(widget.title)),
+        appBar: AppBar(centerTitle: true, title: Text(widget.title)),
         body: Container(
           padding: EdgeInsets.only(
             left: 20,
@@ -32,15 +30,20 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _formUI() {
     return Form(
-        key: _formKey,
+      key: _formKey,
+      child: SingleChildScrollView(
+        reverse: true,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
                 height: 200.0,
                 width: 200.0,
                 child: Image.asset('assets/banner_pequeno.png')),
+            SizedBox(
+              height: 32,
+            ),
             TextFormField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
@@ -48,7 +51,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelText: 'Email',
               ),
               validator: (input) => input == '' ? 'Digite um email' : null,
-              onSaved: (value) => email = value,
+              onSaved: (value) => email = value!,
+            ),
+            SizedBox(
+              height: 16,
             ),
             TextFormField(
               obscureText: true,
@@ -59,7 +65,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelText: 'Senha',
               ),
               validator: (input) => input == '' ? 'Digite uma senha' : null,
-              onSaved: (value) => senha = value,
+              onSaved: (value) => senha = value!,
+            ),
+            SizedBox(
+              height: 16,
             ),
             TextFormField(
               obscureText: true,
@@ -70,7 +79,10 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               validator: (input) =>
                   input == '' ? 'Repita novamente a senha' : null,
-              onSaved: (value) => validaSenha = value,
+              onSaved: (value) => validaSenha = value!,
+            ),
+            SizedBox(
+              height: 32,
             ),
             FloatingActionButton.extended(
               onPressed: () {
@@ -87,7 +99,9 @@ class _RegisterPageState extends State<RegisterPage> {
               label: Text("Cadastrar"),
             ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 
   Widget _senhaInvalida() {

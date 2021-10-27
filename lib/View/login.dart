@@ -9,8 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String? senha = '';
-  String? email = '';
+  String senha = '';
+  String email = '';
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -30,44 +30,54 @@ class _LoginPageState extends State<LoginPage> {
   Widget _formUI() {
     return Form(
         key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Container(
-                height: 200.0,
-                width: 200.0,
-                child: Image.asset('assets/banner_pequeno.png')),
-            TextFormField(
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Email',
-              ),
-              validator: (input) => input == '' ? 'Digite um email' : null,
-              onSaved: (value) => email = value,
-            ),
-            TextFormField(
-              obscureText: true,
-              //deixa a senha secreta
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Senha',
-              ),
-              validator: (input) => input == '' ? 'Digite uma senha' : null,
-              onSaved: (value) => senha = value,
-              //maxLength: 10, coloca um limite no número de caracteres;
-            ),
-            FloatingActionButton.extended(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                }
-              },
-              label: Text("Entrar"),
-            ),
-          ],
-        ));
+        child: SingleChildScrollView(
+            reverse: true,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                    height: 200.0,
+                    width: 200.0,
+                    child: Image.asset('assets/banner_pequeno.png')),
+                SizedBox(
+                  height: 32,
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Email',
+                  ),
+                  validator: (input) => input == '' ? 'Digite um email' : null,
+                  onSaved: (value) => email = value!,
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                TextFormField(
+                  obscureText: true,
+                  //deixa a senha secreta
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Senha',
+                  ),
+                  validator: (input) => input == '' ? 'Digite uma senha' : null,
+                  onSaved: (value) => senha = value!,
+                ),
+                SizedBox(
+                  height: 32,
+                ),
+                FloatingActionButton.extended(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                    }
+                  },
+                  label: Text("Entrar"),
+                ),
+              ],
+            )));
   }
 }
