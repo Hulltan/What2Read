@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:what2read/Controler/Firebase/sing_in.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key, required this.title}) : super(key: key);
@@ -74,6 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
                       Navigator.pushNamed(context, '/findbook');
+                      SingIn(email, senha, _formKey, context);
                     }
                   },
                   label: Text("Entrar"),

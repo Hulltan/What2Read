@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../Controler/Firebase/sing_up.dart';
 
 class RegisterPage extends StatefulWidget {
   RegisterPage({Key? key, required this.title}) : super(key: key);
@@ -95,6 +97,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 } else if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
                   Navigator.pushNamed(context, '/findbook');
+                  SingUp(email, senha, _formKey.currentState, context);
                 }
               },
               label: Text("Cadastrar"),

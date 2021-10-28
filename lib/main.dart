@@ -4,9 +4,13 @@ import 'package:what2read/View/findBook.dart';
 import 'package:what2read/View/register.dart';
 import 'package:what2read/View/login.dart';
 import 'package:what2read/View/home.dart';
+import 'Controler/Firebase/firebase_init.dart';
+import 'Controler/Firebase/verify_email.dart';
+
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyFirebaseApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,6 +28,7 @@ class MyApp extends StatelessWidget {
           '/login': (context) => LoginPage(title: "Login"),
           '/cadastro': (context) => RegisterPage(title: "Cadastro"),
           '/findbook': (context) => FindBook(title: "Find",),
+          '/verify' : (context) => VerifyScreen(),
         });
   }
 }
