@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class FindBook extends StatefulWidget {
   const FindBook({Key? key, required this.title}) : super(key: key);
@@ -27,7 +27,7 @@ class _FindBookState extends State<FindBook> {
                 margin: EdgeInsets.only(bottom: 20, top: 20),
               ),
               Container(
-                // child: SvgPicture.asset('assets/undraw_book_lover_mkck.svg'),
+                child: SvgPicture.asset('assets/undraw_book_lover_mkck.svg'),
                 width: 250,
                 height: 250,
                 margin: EdgeInsets.only(bottom: 10),

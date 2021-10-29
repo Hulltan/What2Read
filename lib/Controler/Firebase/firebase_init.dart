@@ -35,7 +35,7 @@ class _MyFirebaseAppState extends State<MyFirebaseApp> {
           return _buildAppError(snapshot.error);
         }
 
-        if (snapshot.connectionState == ConnectionState.done) {
+        else if (snapshot.connectionState == ConnectionState.done) {
           return MyApp();
         }
 
