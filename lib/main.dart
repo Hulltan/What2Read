@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:what2read/View/findBook.dart';
+import 'package:what2read/View/onboarding.dart';
 import 'package:what2read/View/register.dart';
 import 'package:what2read/View/login.dart';
 import 'package:what2read/View/home.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => HomePage(title: 'What2Read'),
           '/login': (context) => LoginPage(title: "Login"),
+          '/onboarding': (context) => OnboardingPage(title: "Onboarding"),
           '/cadastro': (context) => RegisterPage(title: "Cadastro"),
           '/findbook': (context) => FindBook(title: "Find",),
           '/verify' : (context) => VerifyScreen(),
