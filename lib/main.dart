@@ -6,6 +6,7 @@ import 'package:what2read/View/login.dart';
 import 'package:what2read/View/home.dart';
 import 'Controler/Firebase/firebase_init.dart';
 import 'Controler/Firebase/verify_email.dart';
+import 'View/EncontreSeuLivro/encontreSeuLivro.dart';
 
 
 void main() {
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
           '/cadastro': (context) => RegisterPage(title: "Cadastro"),
           '/findbook': (context) => FindBook(title: "Find",),
           '/verify' : (context) => VerifyScreen(),
+          '/encontreSeuLivro' : (context) => EncontreSeuLivro(title: "Livros sugeridos"),
         });
   }
 }
