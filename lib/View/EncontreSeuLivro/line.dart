@@ -19,75 +19,123 @@ class _LineState extends State<Line> {
   }
 
   Widget buildRow(context) {
-    return ListTile(
-      leading: ConstrainedBox(
-        constraints: BoxConstraints(
-          minWidth: 50,
-          minHeight: 50,
-          maxWidth: 50,
-          maxHeight: 50,
+    return Card(
+      child: ListTile(
+        leading: Image.network(widget.imagemCapa,),
+       // ),
+        title: Text(
+
+          widget.nomeLivro,
+          style: Theme
+              .of(context)
+              .textTheme
+              .headline6,
         ),
-        child: Image.network(widget.imagemCapa, fit: BoxFit.cover),
-      ),
-        title: Row(
-          children: [
-            Expanded(
-              child: Text(
-                widget.nomeLivro,
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline5,
-              ),
+        subtitle: Row(children: [
+          Container(
+            child: Text(
+              widget.gereno,
             ),
-            Container(
-              child: IconButton(
+          ),
+          Container(
+            child: IconButton(
+                padding: EdgeInsets.zero,
+                constraints: BoxConstraints(),
                 icon: Icon(
-                  widget.livroFavoritado ? Icons.bookmark : Icons
-                      .bookmark_border,
-                  color: widget.livroFavoritado ? Colors.yellow : null,
+                  Icons.circle,
+                  color: Colors.grey,
+                  size: 12.0,
                 ),
-                onPressed: () {
-                  setState(() {
-                    if (widget.livroFavoritado) {
-                      widget.livroFavoritado = false;
-                      print(widget.livroFavoritado);
-                    } else {
-                      widget.livroFavoritado = true;
-                      print(widget.livroFavoritado);
-                    }
-                  });
-                },
-              ),
+                onPressed: () {}),
+          ),
+          Container(
+            child: Text(
+              widget.qntPaginas,
             ),
-          ],
+          ),
+        ]),
+        trailing: IconButton(
+          icon: Icon(
+            widget.livroFavoritado ? Icons.bookmark : Icons.bookmark_border,
+            color: widget.livroFavoritado ? Colors.yellow : null,
+          ),
+          onPressed: () {
+            setState(() {
+              if (widget.livroFavoritado) {
+                widget.livroFavoritado = false;
+                print(widget.livroFavoritado);
+              } else {
+                widget.livroFavoritado = true;
+                print(widget.livroFavoritado);
+              }
+            });
+          },
         ),
-        subtitle: Row(
-            children: [
-              Container(
-                child: Text(
-                    widget.gereno,
-                  ),
-                ),
-              Container(
-                child: IconButton(
-                    padding: EdgeInsets.zero,
-                    constraints: BoxConstraints(),
-                    icon: Icon(
-                        Icons.circle,
-                        color: Colors.grey,
-                        size: 12.0,
-                    ),
-                    onPressed: () {}
-                ),
-              ),
-              Container(
-                child: Text(
-                  widget.qntPaginas,
-                ),
-              ),
-        ]
-        ),
-    );
+      ),);
   }
 }
+
+
+//
+// title: Row(
+// children: [
+// Expanded(
+// child: Text(
+// widget.nomeLivro,
+// style: Theme
+//     .of(context)
+// .textTheme
+//     .headline5,
+// ),
+// ),
+// Container(
+// child: IconButton(
+// icon: Icon(
+// widget.livroFavoritado ? Icons.bookmark : Icons
+//     .bookmark_border,
+// color: widget.livroFavoritado ? Colors.yellow : null,
+// ),
+// onPressed: () {
+// setState(() {
+// if (widget.livroFavoritado) {
+// widget.livroFavoritado = false;
+// print(widget.livroFavoritado);
+// } else {
+// widget.livroFavoritado = true;
+// print(widget.livroFavoritado);
+// }
+// });
+// },
+// ),
+// ),
+// ],
+// ),
+// subtitle: Row(
+// children: [
+// Container(
+// child: Text(
+// widget.gereno,
+// ),
+// ),
+// Container(
+// child: IconButton(
+// padding: EdgeInsets.zero,
+// constraints: BoxConstraints(),
+// icon: Icon(
+// Icons.circle,
+// color: Colors.grey,
+// size: 12.0,
+// ),
+// onPressed: () {}
+// ),
+// ),
+// Container(
+// child: Text(
+// widget.qntPaginas,
+// ),
+// ),
+// ]
+// ),
+// );
+// }
+// }

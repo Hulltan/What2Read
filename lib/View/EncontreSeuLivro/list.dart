@@ -18,8 +18,8 @@ class _ListState extends State<List>{
   Widget list(context) {
     setState(() {});
     return ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemExtent: 80.0,
+        padding: const EdgeInsets.all(8),
+        itemExtent: 90.0,
         itemCount: 5,
         itemBuilder: (context, index) {
           return Line(
