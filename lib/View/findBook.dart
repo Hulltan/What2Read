@@ -42,7 +42,7 @@ class _FindBookState extends State<FindBook> {
                 margin: EdgeInsets.only(bottom: 20),
               ),
               FloatingActionButton.extended(
-                onPressed: () {Navigator.pushNamed(context, '/encontreSeuLivro');},
+                onPressed: () {Navigator.pushNamed(context, '/inserirTexto');},
                 label: Text('Quero encontrar um livro'),
               ),
             ],
