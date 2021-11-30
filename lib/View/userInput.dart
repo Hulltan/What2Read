@@ -14,42 +14,52 @@ class _UserInputState extends State<UserInput> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: SingleChildScrollView(
-        reverse: true,
-        child: Scaffold(
-          appBar: AppBar(title: Text(widget.title), centerTitle: true),
-          body: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                TextFormField(
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Digite uma sinopse ou trecho do livro',
-                  ),
-                  validator: (input) => input == '' ? 'Insira um texto' : null,
-                  onSaved: (value) => searchText = value!,
-                ),
-                SizedBox(
-                  height: 32,
-                ),
-                FloatingActionButton.extended(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save();
-                      Navigator.pushNamed(context, '/encontreSeuLivro');
-                    }
-                  },
-                  label: Text("Pesquisar"),
-                )
-              ],
-            ),
+    return Scaffold(
+        appBar: AppBar(centerTitle: true, title: Text(widget.title)),
+        body: Container(
+          padding: EdgeInsets.only(
+            left: 20,
+            right: 20,
           ),
+          margin: EdgeInsets.all(20.0),
+          child: formDescription(context),
+        ));
+  }
+
+  Widget formDescription(BuildContext context) {
+    return Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+        reverse: true,
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Text("Descreva o livro que você gostaria de ler",
+          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.deepPurple, fontSize: 25),
         ),
-      ),
-    );
+        TextFormField(
+          keyboardType: TextInputType.text,
+            style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black87),
+          decoration: InputDecoration(
+            labelText: 'Apenas palavras em inglês',
+            contentPadding: new EdgeInsets.symmetric(vertical: 150.0),
+          ),
+          validator: (input) => input == '' ? 'Insira um texto' : null,
+          onSaved: (value) => searchText = value!,
+        ),
+        SizedBox(
+          height: 32,
+        ),
+        FloatingActionButton.extended(
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              _formKey.currentState!.save();
+              Navigator.pushNamed(context, '/encontreSeuLivro');
+            }
+          },
+          label: Text("Encontre o livro"),
+        )
+      ],
+    ),),);
   }
 }
