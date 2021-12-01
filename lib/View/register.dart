@@ -65,7 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 border: OutlineInputBorder(),
                 labelText: 'Senha',
               ),
-              validator: (input) => input == '' ? 'Digite uma senha' : null,
+              validator: (input) =>  input == '' ? 'Digite uma senha' : null,
               onSaved: (value) => senha = value!,
             ),
             SizedBox(
@@ -95,7 +95,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   );
                 } else if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
-                  Navigator.pushNamed(context, '/findbook');
+                  //Navigator.pushNamed(context, '/findbook');
                   SingUp(email, senha, _formKey.currentState, context);
                 }
               },

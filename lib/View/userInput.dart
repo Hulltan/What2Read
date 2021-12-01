@@ -44,7 +44,7 @@ class _UserInputState extends State<UserInput> {
                     }
                   },
                   label: Text("Pesquisar"),
-                )
+                ),
               ],
             ),
           ),
