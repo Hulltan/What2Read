@@ -42,8 +42,7 @@ class _UserInputState extends State<UserInput> {
             style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black87),
           decoration: InputDecoration(
             labelText: 'Apenas palavras em inglês',
-            contentPadding: new EdgeInsets.symmetric(vertical: 150.0),
-          ),
+            contentPadding: new EdgeInsets.symmetric(vertical: 150.0),),
           validator: (input) => input == '' ? 'Insira um texto' : null,
           onSaved: (value) => searchText = value!,
         ),

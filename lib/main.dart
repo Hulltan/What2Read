@@ -6,7 +6,7 @@ import 'package:what2read/View/login.dart';
 import 'package:what2read/View/home.dart';
 import 'package:what2read/View/userInput.dart';
 import 'Controler/Firebase/firebase_init.dart';
-import 'Controler/Firebase/verify_email.dart';
+import 'View/verify_email.dart';
 import 'View/EncontreSeuLivro/encontreSeuLivro.dart';
 
 

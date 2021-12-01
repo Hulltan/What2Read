@@ -1,34 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:what2read/Data/constants.dart';
+import 'package:what2read/Controler/API.dart';
 import 'line.dart';
+import 'dart:convert';
+import 'package:what2read/Data/user.dart';
 
-class List extends StatefulWidget {
-  const List({Key? key}) : super(key: key);
-
+class MyListScreen extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _ListState();
+  createState() => _MyListScreenState();
 }
 
-class _ListState extends State<List>{
-  @override
-  Widget build(BuildContext context) {
-    return list(context);
+class _MyListScreenState extends State {
+  var users = <Livro>[];
+
+  _getUsers() {
+    API.getUsers().then((response) {
+      setState(() {
+        Iterable list = json.decode(response.body);
+        users = list.map((model) => Livro.fromJson(model)).toList();
+      });
+    });
   }
 
-  Widget list(context) {
-    setState(() {});
+  initState() {
+    super.initState();
+    _getUsers();
+  }
+
+  dispose() {
+    super.dispose();
+  }
+
+  Widget build(BuildContext context) {
     return ListView.builder(
-        padding: const EdgeInsets.all(8),
-        itemExtent: 90.0,
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return Line(
-          nomeLivro: Constants.livros[index].nomeLivro,
-          qntPaginas: Constants.livros[index].qntPaginas,
-          gereno: Constants.livros[index].gereno,
-          imagemCapa: Constants.livros[index].imagemCapa,
-          livroFavoritado: Constants.livros[index].livroFavoritado,);
-        }
-    );
+      padding: const EdgeInsets.all(8),
+      itemExtent: 90.0,
+      itemCount: users.length,
+      itemBuilder: (context, index) {
+        return Line(
+          nomeLivro: users[index].title, // data[index]
+          qntPaginas: users[index].pages, //users[index].pages,
+          gereno: users[index].choosedGenre[0], // + ", " + users[index].choosedGenre[1],
+          imagemCapa: users[index].coverImg,
+          livroFavoritado: false);
+      }
+  );
   }
 }
