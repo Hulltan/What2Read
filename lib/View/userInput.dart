@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:what2read/Controler/API.dart';
+
+import 'EncontreSeuLivro/encontreSeuLivro.dart';
 
 class UserInput extends StatefulWidget {
   const UserInput({Key? key, required this.title}) : super(key: key);
@@ -53,7 +56,15 @@ class _UserInputState extends State<UserInput> {
           onPressed: () {
             if (_formKey.currentState!.validate()) {
               _formKey.currentState!.save();
-              Navigator.pushNamed(context, '/encontreSeuLivro');
+              //API.enviarText(searchText);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EncontreSeuLivro(textApp: searchText,title: 'Livros sugeridos',),
+                  ));
+              // Navigator.of(context).push(MaterialPageRoute(
+              //     builder: (BuildContext context) => EncontreSeuLivro(title: 'Livros sugeridos',),
+              //     settings: RouteSettings(arguments: {'index': searchText})));
             }
           },
           label: Text("Encontre o livro"),

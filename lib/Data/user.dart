@@ -5,7 +5,6 @@ class Livro {
   String oldDescription = "";
   String coverImg = "";
   List<String> choosedGenre = [];
-  bool saved = false;
 
   Livro(
       {required this.title,
@@ -13,8 +12,7 @@ class Livro {
         required this.pages,
         required this.coverImg,
         required this.oldDescription,
-        required this.choosedGenre,
-        required this.saved});
+        required this.choosedGenre,});
 
   Livro.fromJson(Map<String, dynamic> json) {
     title = json['title'];
@@ -23,7 +21,6 @@ class Livro {
     coverImg = json['coverImg'];
     oldDescription = json['oldDescription'];
     choosedGenre = json['choosedGenre'].cast<String>();
-    saved = json['saved'];
   }
 
   Map<String, dynamic> toJson() {
@@ -34,7 +31,6 @@ class Livro {
     data['coverImg'] = this.coverImg;
     data['oldDescription'] = this.oldDescription;
     data['choosedGenre'] = this.choosedGenre;
-    data['saved'] = this.saved;
     return data;
   }
 }
