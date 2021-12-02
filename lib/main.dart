@@ -4,10 +4,12 @@ import 'package:what2read/View/findBook.dart';
 import 'package:what2read/View/register.dart';
 import 'package:what2read/View/login.dart';
 import 'package:what2read/View/home.dart';
+import 'package:what2read/View/LivrosSalvos/savedBooks.dart';
 import 'package:what2read/View/userInput.dart';
 import 'Controler/Firebase/firebase_init.dart';
 import 'View/verify_email.dart';
 import 'View/EncontreSeuLivro/encontreSeuLivro.dart';
+import 'package:what2read/View/EncontreSeuLivro/line.dart';
 
 
 void main() {

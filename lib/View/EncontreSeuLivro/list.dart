@@ -39,7 +39,7 @@ class _MyListScreenState extends State {
         return Line(
           nomeLivro: users[index].title, // data[index]
           qntPaginas: users[index].pages, //users[index].pages,
-          gereno: users[index].choosedGenre[0], // + ", " + users[index].choosedGenre[1],
+          genero: users[index].choosedGenre[0], // + ", " + users[index].choosedGenre[1],
           imagemCapa: users[index].coverImg,
           livroFavoritado: false);
       }

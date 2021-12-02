@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:what2read/View/LivrosSalvos/savedBooks.dart';
 
 class Line extends StatefulWidget {
   var nomeLivro;
   var qntPaginas;
-  var gereno;
+  var genero;
   var livroFavoritado;
   var imagemCapa;
-  Line({Key? key, @required this.livroFavoritado, @required this.nomeLivro, @required this.qntPaginas, @required this.gereno, @required this.imagemCapa})
+  Line({Key? key, @required this.livroFavoritado, @required this.nomeLivro,
+    @required this.qntPaginas, @required this.genero, @required this.imagemCapa})
       : super(key:key);
   @override
   State<StatefulWidget> createState() => _LineState();
@@ -19,6 +21,7 @@ class _LineState extends State<Line> {
   }
 
   Widget buildRow(context) {
+    var savedBook;
     return Card(
       child: ListTile(
         leading: Image.network(widget.imagemCapa),
@@ -32,7 +35,7 @@ class _LineState extends State<Line> {
         subtitle: Row(children: [
           Container(
             child: Text(
-              widget.gereno.toString(),
+              widget.genero.toString(),
             ),
           ),
           Container(
@@ -66,6 +69,14 @@ class _LineState extends State<Line> {
                 widget.livroFavoritado = true;
                 print(widget.livroFavoritado);
               }
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SavedBooks(title: 'Livros salvos',
+                      livroFavoritado: widget.livroFavoritado,
+                      nomeLivro: widget.nomeLivro, qntPaginas: widget.qntPaginas,
+                    genero: widget.genero, imagemCapa: widget.imagemCapa,),
+                  ));
             });
           },
         ),
