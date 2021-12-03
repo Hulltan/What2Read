@@ -15,13 +15,17 @@ class Line extends StatefulWidget {
 }
 
 class _LineState extends State<Line> {
+  List<String> nomeLivroSalvo = [];
+  List<String> qntPaginasSalvo = [];
+  List<String> generoSalvo = [];
+  List<String> imagemCapaSalvo = [];
+
   @override
   Widget build(BuildContext context) {
     return buildRow(context);
   }
 
   Widget buildRow(context) {
-    var savedBook;
     return Card(
       child: ListTile(
         leading: Image.network(widget.imagemCapa),
@@ -64,19 +68,15 @@ class _LineState extends State<Line> {
             setState(() {
               if (widget.livroFavoritado) {
                 widget.livroFavoritado = false;
-                print(widget.livroFavoritado);
+                //print(widget.livroFavoritado);
               } else {
                 widget.livroFavoritado = true;
-                print(widget.livroFavoritado);
+                //print(widget.livroFavoritado);
+                nomeLivroSalvo.insert(0, widget.nomeLivro);
+                qntPaginasSalvo.insert(0, widget.qntPaginas);
+                generoSalvo.insert(0, widget.genero);
+                imagemCapaSalvo.insert(0, widget.imagemCapa);
               }
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SavedBooks(title: 'Livros salvos',
-                      livroFavoritado: widget.livroFavoritado,
-                      nomeLivro: widget.nomeLivro, qntPaginas: widget.qntPaginas,
-                    genero: widget.genero, imagemCapa: widget.imagemCapa,),
-                  ));
             });
           },
         ),

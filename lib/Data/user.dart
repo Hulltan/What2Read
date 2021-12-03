@@ -34,3 +34,21 @@ class Livro {
     return data;
   }
 }
+
+class LivrosSalvos {
+  String title = "";
+  String author = "";
+  String pages = " " ;
+  String oldDescription = "";
+  String coverImg = "";
+  List<String> choosedGenre = [];
+
+  LivrosSalvos(
+      {required this.title,
+        required this.author,
+        required this.pages,
+        required this.coverImg,
+        required this.oldDescription,
+        required this.choosedGenre,});
+
+  }

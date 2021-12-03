@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:http/http.dart' as http;
 
-const baseUrl = "http://8d31-34-82-67-120.ngrok.io";
+const baseUrl = "http://5ff2-35-222-232-128.ngrok.io";
 
 class API {
   static Future<http.Response> getLivros() async {

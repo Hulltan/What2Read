@@ -13,6 +13,7 @@ class MyListScreen extends StatefulWidget {
 
 class _MyListScreenState extends State<MyListScreen> {
   var livros = <Livro>[];
+
   _getLivros() {
     API.enviarText(widget.textApp).then((response) {
       setState(() {
