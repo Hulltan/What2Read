@@ -74,7 +74,8 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      Navigator.pushNamed(context, '/findbook');
+                      //Navigator.pushNamed(context, '/findbook');
+                      Navigator.pushNamed(context, '/editprof');
                       SingIn(email, senha, _formKey, context);
                     }
                   },
