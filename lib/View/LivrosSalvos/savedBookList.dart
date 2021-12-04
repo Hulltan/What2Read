@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:what2read/Data/user.dart';
+import 'package:what2read/Model/user.dart';
 import 'package:what2read/View/LivrosSalvos/savedBooksLine.dart';
 
 class SavedBookList extends StatefulWidget {
