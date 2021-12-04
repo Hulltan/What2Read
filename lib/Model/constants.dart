@@ -1,4 +1,4 @@
-import 'package:what2read/Controler/Models/livro.dart';
+import 'package:what2read/Model/livro.dart';
 
 class Constants{
   static List<Livro> livros = [

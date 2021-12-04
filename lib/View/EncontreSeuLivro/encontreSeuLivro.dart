@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'list.dart';
 
 class EncontreSeuLivro extends StatefulWidget {
-  const EncontreSeuLivro({Key? key, required this.title}) : super(key: key);
+  const EncontreSeuLivro({Key? key, required this.textApp, required this.title}) : super(key: key);
   final String title;
+  final String textApp;
   @override
   State<StatefulWidget> createState() => _EncontreSeuLivroState();
 }
@@ -14,7 +15,7 @@ class _EncontreSeuLivroState extends State<EncontreSeuLivro> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text(widget.title)),
-      body: List(),
+      body: MyListScreen(textApp: widget.textApp),
     );
   }
 }
