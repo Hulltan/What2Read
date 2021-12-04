@@ -13,41 +13,46 @@ class _FindBookState extends State<FindBook> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(widget.title), centerTitle: true),
-        body: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                child: Text("Quero começar a ler",
-                    style:
-                        TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.only(bottom: 20, top: 20),
-              ),
-              Container(
-                child: SvgPicture.asset('assets/undraw_book_lover_mkck.svg'),
-                width: 250,
-                height: 250,
-                margin: EdgeInsets.only(bottom: 10),
-              ),
-              Container(
-                child: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-                    'Donec in turpis et justo interdum blandit eu non tellus. Duis sed turpis nisl. '
-                    'Quisque laoreet lobortis velit, sed molestie elit iaculis vitae.',
-                    textAlign: TextAlign.center),
-                padding: EdgeInsets.all(25),
-                margin: EdgeInsets.only(bottom: 20),
-              ),
-              FloatingActionButton.extended(
-                onPressed: () {Navigator.pushNamed(context, '/inserirTexto');},
-                label: Text('Quero encontrar um livro'),
-              ),
-            ],
-          ),
+      appBar: AppBar(
+        title: Text(widget.title),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+      ),
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              child: Text("Quero começar a ler",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+              padding: EdgeInsets.all(20),
+              margin: EdgeInsets.only(bottom: 20, top: 20),
+            ),
+            Container(
+              child: SvgPicture.asset('assets/undraw_book_lover_mkck.svg'),
+              width: 250,
+              height: 250,
+              margin: EdgeInsets.only(bottom: 10),
+            ),
+            Container(
+              child: Text(
+                  'Aqui começa sua jornada pelo What2Read. Clicando no botão '
+                  'abaixo uma nova tela será exibida, onde a descrição '
+                  'ou trecho poderá ser inserido. Mas atenção: Apenas palavras'
+                  'em inglês.',
+                  textAlign: TextAlign.center),
+              padding: EdgeInsets.all(25),
+              margin: EdgeInsets.only(bottom: 20),
+            ),
+            FloatingActionButton.extended(
+              onPressed: () {
+                Navigator.pushNamed(context, '/inserirTexto');
+              },
+              label: Text('Quero encontrar um livro'),
+            ),
+          ],
         ),
+      ),
     );
   }
 }

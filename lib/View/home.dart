@@ -15,29 +15,35 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(title: Center(child: Text(widget.title))),
       body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 40,
+              ),
               Container(
                   height: 250.0,
                   width: 250.0,
                   child: Image.asset('assets/banner_pequeno.png')),
+              SizedBox(
+                height: 40,
+              ),
               Flexible(
                 child: Text(
-                  'Lorem ipsum dolor sit amet. Aut optio perferendis non minima '
-                  'voluptate a eaque ullam ut facere eius eos debitis ipsa '
-                  'et culpa dolor. Sed laborum dolorum qui ipsam '
-                  'esse et suscipit quam 33 '
-                  'earum dolorem eos commodi dolore '
-                  'rem accusantium explicabo. Est dignissimos'
-                  ' rerum est quasi maiores non impedit earum '
-                  'ad modi facere architecto porro non voluptates delectus.',
+                  'What2Read é um aplicativo que te ajuda quando você tem dúvida'
+                  'quanto ao que ler. Inserindo um trecho os descrição de um livro,'
+                  'o aplicativo irá sugerir alguns títulos parecidos, ajudando'
+                  'na escolha da sua próxima leitura.',
+
                   style: TextStyle(
                     color: Colors.black87,
                   ),
                   textDirection: TextDirection.ltr,
                   textAlign: TextAlign.center,
                 ),
+              ),
+              SizedBox(
+                height: 60,
               ),
               FloatingActionButton.extended(
                 onPressed: () {
