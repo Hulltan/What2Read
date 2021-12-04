@@ -36,7 +36,7 @@ class _AccountOptionsState extends State<AccountOptions> {
                       height: 50,
                       child: FloatingActionButton.extended(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/');},
+                            Navigator.pushNamed(context, '/editprof');},
                           label: Text('Editar perfil')),
                         margin: EdgeInsets.only(bottom: 20, top: 20)
                     ),

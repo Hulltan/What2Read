@@ -30,9 +30,9 @@ class _HomePageState extends State<HomePage> {
               ),
               Flexible(
                 child: Text(
-                  'What2Read é um aplicativo que te ajuda quando você tem dúvida'
+                  'What2Read é um aplicativo que te ajuda quando você tem dúvida '
                   'quanto ao que ler. Inserindo um trecho os descrição de um livro,'
-                  'o aplicativo irá sugerir alguns títulos parecidos, ajudando'
+                  'o aplicativo irá sugerir alguns títulos parecidos, ajudando '
                   'na escolha da sua próxima leitura.',
 
                   style: TextStyle(

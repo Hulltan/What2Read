@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
           '/findbook': (context) => FindBook(title: "Bem Vindo(a)!",),
           '/verify' : (context) => VerifyScreen(),
           '/inserirTexto' : (context) => UserInput(title: 'Inserir Texto'),
-          //'/encontreSeuLivro' : (context) => EncontreSeuLivro(title: "Livros sugeridos"),
           '/editprof' : (context) => EditProfile(title: "Editar perfil"),
           '/encontreSeuLivro' : (context) => EncontreSeuLivro(textApp: 'teste',title: "Livros sugeridos"),
           '/accountOptions' : (context) => AccountOptions(title: 'Opções de conta'),

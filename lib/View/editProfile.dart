@@ -3,26 +3,14 @@ import 'package:what2read/Controler/Models/usuario.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:what2read/Controler/Firebase/editInfo.dart';
 
-class EditProfile extends StatelessWidget {
+class EditProfile extends StatefulWidget {
   const EditProfile({Key? key, required this.title}) : super(key: key);
   final String title;
-
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Setting UI",
-      home: EditProfilePage(),
-    );
-  }
+  _EditProfileState createState() => _EditProfileState();
 }
 
-class EditProfilePage extends StatefulWidget {
-  @override
-  _EditProfilePageState createState() => _EditProfilePageState();
-}
-
-class _EditProfilePageState extends State<EditProfilePage> {
+class _EditProfileState extends State<EditProfile> {
   bool showPassword = false;
   FirebaseAuth auth = FirebaseAuth.instance;
   late User user;
