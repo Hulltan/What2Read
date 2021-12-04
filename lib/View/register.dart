@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../Controler/Firebase/sing_up.dart';
 
@@ -66,7 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 border: OutlineInputBorder(),
                 labelText: 'Senha',
               ),
-              validator: (input) => input == '' ? 'Digite uma senha' : null,
+              validator: (input) =>  input == '' ? 'Digite uma senha' : null,
               onSaved: (value) => senha = value!,
             ),
             SizedBox(

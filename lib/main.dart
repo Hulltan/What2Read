@@ -1,12 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:what2read/View/editProfile.dart';
+import 'package:what2read/View/accountOptions.dart';
 import 'package:what2read/View/findBook.dart';
 import 'package:what2read/View/onboarding.dart';
 import 'package:what2read/View/register.dart';
 import 'package:what2read/View/login.dart';
 import 'package:what2read/View/home.dart';
+import 'package:what2read/View/LivrosSalvos/savedBookList.dart';
+import 'package:what2read/View/userInput.dart';
 import 'Controler/Firebase/firebase_init.dart';
-import 'Controler/Firebase/verify_email.dart';
+import 'View/verify_email.dart';
+import 'View/EncontreSeuLivro/encontreSeuLivro.dart';
+import 'package:what2read/View/EncontreSeuLivro/line.dart';
 
 
 void main() {
@@ -29,8 +35,13 @@ class MyApp extends StatelessWidget {
           '/login': (context) => LoginPage(title: "Login"),
           '/onboarding': (context) => OnboardingPage(title: "Onboarding"),
           '/cadastro': (context) => RegisterPage(title: "Cadastro"),
-          '/findbook': (context) => FindBook(title: "Find",),
+          '/findbook': (context) => FindBook(title: "Bem Vindo(a)!",),
           '/verify' : (context) => VerifyScreen(),
+          '/inserirTexto' : (context) => UserInput(title: 'Inserir Texto'),
+          '/editprof' : (context) => EditProfile(title: "Editar perfil"),
+          '/encontreSeuLivro' : (context) => EncontreSeuLivro(textApp: 'teste',title: "Livros sugeridos"),
+          '/accountOptions' : (context) => AccountOptions(title: 'Opções de conta'),
+          // '/savedBooks' : (context) => SavedBookList(),
         });
   }
 }
