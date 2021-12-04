@@ -29,14 +29,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
   final emailController = TextEditingController();
   final senhaController = TextEditingController();
 
-  @override
   getUser(User user) async {
-    user = await auth.currentUser!;
+    setState(() async{
+      user = auth.currentUser!;
+    });
   }
 
+  @override
   void initState() {
     super.initState();
-    user = getUser(user);
+    getUser(user);
   }
 
   void dispose() {
