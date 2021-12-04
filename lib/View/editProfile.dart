@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:what2read/Controler/Models/usuario.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:what2read/Controler/Firebase/editInfo.dart';
 
 class EditProfile extends StatelessWidget {
   const EditProfile({Key? key, required this.title}) : super(key: key);
@@ -21,7 +24,27 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   bool showPassword = false;
+  FirebaseAuth auth = FirebaseAuth.instance;
+  late User user;
+  final emailController = TextEditingController();
+  final senhaController = TextEditingController();
+
   @override
+  getUser(User user) async {
+    user = await auth.currentUser!;
+  }
+
+  void initState() {
+    super.initState();
+    user = getUser(user);
+  }
+
+  void dispose() {
+    emailController.dispose();
+    senhaController.dispose();
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -83,8 +106,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField("E-mail", "teste@gmail.com", false),
-              buildTextField("Password", "123456", true),
+              buildTextField(emailController,"Email", user.email!, false),
+              buildTextField(senhaController,"Senha", "", true),
               SizedBox(
                 height: 35,
               ),
@@ -92,7 +115,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RaisedButton(
-                    onPressed: () {},
+                    onPressed: updateProfile(emailController.text,senhaController.text),
                     color: Colors.deepPurple,
                     padding: EdgeInsets.symmetric(horizontal: 75),
                     elevation: 2,
@@ -116,10 +139,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
   }
 
   Widget buildTextField(
-      String labelText, String placeholder, bool isPasswordTextField) {
+      TextEditingController controller, String labelText, String placeholder, bool isPasswordTextField) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 35.0),
       child: TextField(
+
+        controller: controller,
         obscureText: isPasswordTextField ? showPassword : false,
         decoration: InputDecoration(
             suffixIcon: isPasswordTextField
@@ -147,4 +172,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
       ),
     );
   }
+  updateProfile(String email, String senha){
+    user.updateEmail(email);
+    user.updatePassword(senha);
+  }
 }
+

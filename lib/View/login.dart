@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:what2read/Controler/Firebase/sing_in.dart';
+import 'package:what2read/Controler/Models/usuario.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key, required this.title}) : super(key: key);
