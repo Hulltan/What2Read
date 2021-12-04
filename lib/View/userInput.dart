@@ -38,19 +38,25 @@ class _UserInputState extends State<UserInput> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Text("Descreva o livro que você gostaria de ler",
-          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.deepPurple, fontSize: 25),
+          style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.deepPurple,
+                  fontSize: 25),
+            ),
+        SizedBox(
+          height: 30,
         ),
         TextFormField(
           keyboardType: TextInputType.text,
             style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black87),
           decoration: InputDecoration(
             labelText: 'Apenas palavras em inglês',
-            contentPadding: new EdgeInsets.symmetric(vertical: 150.0),),
+            ),
           validator: (input) => input == '' ? 'Insira um texto' : null,
           onSaved: (value) => searchText = value!,
         ),
         SizedBox(
-          height: 32,
+          height: 64,
         ),
         FloatingActionButton.extended(
           onPressed: () {

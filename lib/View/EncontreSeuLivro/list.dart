@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:what2read/Controler/API.dart';
 import 'line.dart';
 import 'dart:convert';
-import 'package:what2read/Data/user.dart';
+import 'package:what2read/Model/user.dart';
 
 class MyListScreen extends StatefulWidget {
   var textApp;
