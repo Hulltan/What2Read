@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-void main() {
-  runApp(AccountOptions());
-}
-
 class AccountOptions extends StatefulWidget {
-  const AccountOptions({Key? key}) : super(key: key);
-  //final String title;
+  const AccountOptions({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
   _AccountOptionsState createState() => _AccountOptionsState();
@@ -16,10 +12,9 @@ class AccountOptions extends StatefulWidget {
 class _AccountOptionsState extends State<AccountOptions> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
-          title: Text('What2Read'),
+          title: Text(widget.title),
           centerTitle: true,
         ),
         body: Center(
@@ -54,22 +49,12 @@ class _AccountOptionsState extends State<AccountOptions> {
                           label: Text('Excluir conta')),
                         margin: EdgeInsets.only(bottom: 20)
                     ),
-                    Container (
-                      width: 190,
-                      height: 50,
-                      child: FloatingActionButton.extended(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/');
-                          },
-                          label: Text('Sair')) ,
-                    )
                   ],
                 ),
               )
             ],
           ),
         ),
-      ),
     );
   }
 }

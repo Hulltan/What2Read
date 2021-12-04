@@ -26,11 +26,11 @@ class DrawerBar extends StatelessWidget {
               color: Colors.deepPurple,
             ),
             title: const Text(
-              'Editar Perfil',
+              'Perfil',
               style: const TextStyle(color: Colors.deepPurple),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/accountOptions');
             },
           ),
           ListTile(
@@ -44,6 +44,19 @@ class DrawerBar extends StatelessWidget {
             ),
             onTap: () {
               // Navigator.pushNamed(context, '/savedBooks');
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.power_settings_new,
+              color: Colors.deepPurple,
+            ),
+            title: const Text(
+              'Sair',
+              style: const TextStyle(color: Colors.deepPurple),
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/');
             },
           ),
         ],
