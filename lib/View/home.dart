@@ -52,8 +52,6 @@ class _HomePageState extends State<HomePage> {
                 label: Text("Cadastre-se"),
               ),
               TextButton(
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.white70, shadowColor: Colors.green),
                 child: Text(
                   'Já tenho uma conta',
                   style: TextStyle(
