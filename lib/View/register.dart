@@ -65,7 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 border: OutlineInputBorder(),
                 labelText: 'Senha',
               ),
-              validator: (input) =>  input == '' ? 'Digite uma senha' : null,
+              validator: (input) => input == '' ? 'Digite uma senha' : null,
               onSaved: (value) => senha = value!,
             ),
             SizedBox(

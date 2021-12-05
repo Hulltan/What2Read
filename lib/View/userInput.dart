@@ -31,51 +31,58 @@ class _UserInputState extends State<UserInput> {
 
   Widget formDescription(BuildContext context) {
     return Form(
-        key: _formKey,
-        child: SingleChildScrollView(
+      key: _formKey,
+      child: SingleChildScrollView(
         reverse: true,
         child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Text("Descreva o livro que você gostaria de ler",
-          style: const TextStyle(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Descreva o livro que você gostaria de ler",
+              style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.deepPurple,
                   fontSize: 25),
             ),
-        SizedBox(
-          height: 30,
-        ),
-        TextFormField(
-          keyboardType: TextInputType.text,
-            style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black87),
-          decoration: InputDecoration(
-            labelText: 'Apenas palavras em inglês',
+            SizedBox(
+              height: 30,
             ),
-          validator: (input) => input == '' ? 'Insira um texto' : null,
-          onSaved: (value) => searchText = value!,
+            TextFormField(
+              keyboardType: TextInputType.text,
+              style: TextStyle(
+                  fontWeight: FontWeight.normal, color: Colors.black87),
+              decoration: InputDecoration(
+                labelText: 'Apenas palavras em inglês',
+              ),
+              validator: (input) => input == '' ? 'Insira um texto' : null,
+              onSaved: (value) => searchText = value!,
+            ),
+            SizedBox(
+              height: 64,
+            ),
+            FloatingActionButton.extended(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
+                  //API.enviarText(searchText);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EncontreSeuLivro(
+                          textApp: searchText,
+                          title: 'Livros sugeridos',
+                        ),
+                      ));
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //     builder: (BuildContext context) => EncontreSeuLivro(title: 'Livros sugeridos',),
+                  //     settings: RouteSettings(arguments: {'index': searchText})));
+                }
+              },
+              label: Text("Encontre o livro"),
+            )
+          ],
         ),
-        SizedBox(
-          height: 64,
-        ),
-        FloatingActionButton.extended(
-          onPressed: () {
-            if (_formKey.currentState!.validate()) {
-              _formKey.currentState!.save();
-              //API.enviarText(searchText);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => EncontreSeuLivro(textApp: searchText,title: 'Livros sugeridos',),
-                  ));
-              // Navigator.of(context).push(MaterialPageRoute(
-              //     builder: (BuildContext context) => EncontreSeuLivro(title: 'Livros sugeridos',),
-              //     settings: RouteSettings(arguments: {'index': searchText})));
-            }
-          },
-          label: Text("Encontre o livro"),
-        )
-      ],
-    ),),);
+      ),
+    );
   }
 }

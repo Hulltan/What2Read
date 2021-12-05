@@ -6,9 +6,16 @@ class SavedBooksLine extends StatefulWidget {
   var genero;
   var livroFavoritado;
   var imagemCapa;
-  SavedBooksLine({Key? key, @required this.livroFavoritado, @required this.nomeLivro,
-    @required this.qntPaginas, @required this.genero, @required this.imagemCapa})
-      : super(key:key);
+
+  SavedBooksLine(
+      {Key? key,
+      @required this.livroFavoritado,
+      @required this.nomeLivro,
+      @required this.qntPaginas,
+      @required this.genero,
+      @required this.imagemCapa})
+      : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _SavedBooksLineState();
 }
@@ -53,6 +60,7 @@ class _SavedBooksLineState extends State<SavedBooksLine> {
             ),
           ),
         ]),
-      ),);
+      ),
+    );
   }
 }

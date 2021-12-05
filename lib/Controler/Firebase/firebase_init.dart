@@ -9,13 +9,13 @@ const errorDescStyle = TextStyle(
     color: Colors.yellow, fontStyle: FontStyle.italic, fontSize: 16.0);
 const exceptionTitleStyle = TextStyle(color: Colors.yellow, fontSize: 20.0);
 const exceptionDescStyle =
-TextStyle(color: Colors.red, fontStyle: FontStyle.italic, fontSize: 16.0);
+    TextStyle(color: Colors.red, fontStyle: FontStyle.italic, fontSize: 16.0);
 const textTitleStyle = TextStyle(fontSize: 20.0);
 const textDescStyle = TextStyle(fontSize: 16.0);
 
-
 class MyFirebaseApp extends StatefulWidget {
   const MyFirebaseApp({Key? key}) : super(key: key);
+
   @override
   _MyFirebaseAppState createState() => _MyFirebaseAppState();
 }
@@ -33,9 +33,7 @@ class _MyFirebaseAppState extends State<MyFirebaseApp> {
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return _buildAppError(snapshot.error);
-        }
-
-        else if (snapshot.connectionState == ConnectionState.done) {
+        } else if (snapshot.connectionState == ConnectionState.done) {
           return MyApp();
         }
 
@@ -43,6 +41,7 @@ class _MyFirebaseAppState extends State<MyFirebaseApp> {
       },
     );
   }
+
   Directionality _buildAppError(Object? error) {
     return Directionality(
       textDirection: TextDirection.ltr,

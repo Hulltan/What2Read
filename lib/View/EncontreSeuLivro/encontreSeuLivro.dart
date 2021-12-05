@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'list.dart';
 
 class EncontreSeuLivro extends StatefulWidget {
-  const EncontreSeuLivro({Key? key, required this.textApp, required this.title}) : super(key: key);
+  const EncontreSeuLivro({Key? key, required this.textApp, required this.title})
+      : super(key: key);
   final String title;
   final String textApp;
+
   @override
   State<StatefulWidget> createState() => _EncontreSeuLivroState();
 }

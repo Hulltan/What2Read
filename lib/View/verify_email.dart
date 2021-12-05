@@ -34,26 +34,28 @@ class _VerifyScreenState extends State<VerifyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Confirmação de email')),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  'Um email de confirmação foi enviado para ${user!.email}. Após a confirmação, você será redirecinado automaticamente para a tela de Login',
-                  style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  textAlign: TextAlign.center,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.all(20),
+              child: Text(
+                'Um email de confirmação foi enviado para ${user!.email}. '
+                'Após a confirmação, você será redirecinado automaticamente '
+                'para a tela de Login.',
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
                 ),
+                textAlign: TextAlign.center,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
+      ),
     );
   }
 
@@ -62,7 +64,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
     await user!.reload();
     if (user!.emailVerified) {
       timer!.cancel();
-      Navigator. popUntil (context, ModalRoute. withName ('/'));
+      Navigator.popUntil(context, ModalRoute.withName('/'));
     }
   }
 }

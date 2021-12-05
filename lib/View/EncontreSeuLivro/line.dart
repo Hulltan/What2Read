@@ -7,9 +7,16 @@ class Line extends StatefulWidget {
   var genero;
   var livroFavoritado;
   var imagemCapa;
-  Line({Key? key, @required this.livroFavoritado, @required this.nomeLivro,
-    @required this.qntPaginas, @required this.genero, @required this.imagemCapa})
-      : super(key:key);
+
+  Line(
+      {Key? key,
+      @required this.livroFavoritado,
+      @required this.nomeLivro,
+      @required this.qntPaginas,
+      @required this.genero,
+      @required this.imagemCapa})
+      : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _LineState();
 }
@@ -80,6 +87,7 @@ class _LineState extends State<Line> {
             });
           },
         ),
-      ),);
+      ),
+    );
   }
 }

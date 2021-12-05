@@ -12,7 +12,7 @@ class OnboardingPage extends StatefulWidget {
   _OnboardingState createState() => _OnboardingState();
 }
 
-class _OnboardingState extends State<OnboardingPage>{
+class _OnboardingState extends State<OnboardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   get title => null;
@@ -51,27 +51,39 @@ class _OnboardingState extends State<OnboardingPage>{
         PageViewModel(
           title: "Descreva as características do livro",
           body:
-          "Descreva um breve resumo sobre que tipo de livro você está procurando.",
+              "Descreva um breve resumo sobre que tipo de livro você está procurando.",
           image: Container(
-            child: SvgPicture.asset('assets/undraw_text_field_htlv.svg', height: 160, width: 160,),
+            child: SvgPicture.asset(
+              'assets/undraw_text_field_htlv.svg',
+              height: 160,
+              width: 160,
+            ),
           ),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Analise os livros sugeridos",
           body:
-          "Faça uma analise dos resultados mostrados a partir da sua descrição.",
+              "Faça uma analise dos resultados mostrados a partir da sua descrição.",
           image: Container(
-            child: SvgPicture.asset('assets/undraw_browsing_online_re_umsa.svg', height: 160, width: 160,),
+            child: SvgPicture.asset(
+              'assets/undraw_browsing_online_re_umsa.svg',
+              height: 160,
+              width: 160,
+            ),
           ),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Salve as opções favoritas",
           body:
-          "Você pode salvar seus livros favoritos e nunca esquecer daquela história que você achou interessante.",
+              "Você pode salvar seus livros favoritos e nunca esquecer daquela história que você achou interessante.",
           image: Container(
-            child: SvgPicture.asset('assets/undraw_loving_it_re_jfh4.svg', height: 160, width: 160,),
+            child: SvgPicture.asset(
+              'assets/undraw_loving_it_re_jfh4.svg',
+              height: 160,
+              width: 160,
+            ),
           ),
           decoration: pageDecoration,
         ),

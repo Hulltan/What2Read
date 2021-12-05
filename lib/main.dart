@@ -14,7 +14,6 @@ import 'View/verify_email.dart';
 import 'View/EncontreSeuLivro/encontreSeuLivro.dart';
 import 'package:what2read/View/EncontreSeuLivro/line.dart';
 
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyFirebaseApp());
@@ -35,12 +34,16 @@ class MyApp extends StatelessWidget {
           '/login': (context) => LoginPage(title: "Login"),
           '/onboarding': (context) => OnboardingPage(title: "Onboarding"),
           '/cadastro': (context) => RegisterPage(title: "Cadastro"),
-          '/findbook': (context) => FindBook(title: "Bem Vindo(a)!",),
-          '/verify' : (context) => VerifyScreen(),
-          '/inserirTexto' : (context) => UserInput(title: 'Inserir Texto'),
-          '/editprof' : (context) => EditProfile(title: "Editar perfil"),
-          '/encontreSeuLivro' : (context) => EncontreSeuLivro(textApp: 'teste',title: "Livros sugeridos"),
-          '/accountOptions' : (context) => AccountOptions(title: 'Opções de conta'),
+          '/findbook': (context) => FindBook(title: "Bem Vindo(a)!"),
+          '/verify': (context) => VerifyScreen(),
+          '/inserirTexto': (context) => UserInput(title: 'Inserir Texto'),
+          '/editprof': (context) => EditProfile(title: "Editar perfil"),
+          '/encontreSeuLivro': (context) => EncontreSeuLivro(
+                textApp: 'teste',
+                title: "Livros sugeridos",
+              ),
+          '/accountOptions': (context) =>
+              AccountOptions(title: 'Opções de conta'),
           // '/savedBooks' : (context) => SavedBookList(),
         });
   }

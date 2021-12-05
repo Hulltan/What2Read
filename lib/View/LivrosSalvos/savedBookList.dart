@@ -9,9 +9,14 @@ class SavedBookList extends StatefulWidget {
   var livroFavoritado;
   var imagemCapa;
 
-  SavedBookList({Key? key, @required this.livroFavoritado, @required this.nomeLivro,
-    @required this.qntPaginas, @required this.genero, @required this.imagemCapa})
-      : super(key:key);
+  SavedBookList(
+      {Key? key,
+      @required this.livroFavoritado,
+      @required this.nomeLivro,
+      @required this.qntPaginas,
+      @required this.genero,
+      @required this.imagemCapa})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _SavedBookListState();
@@ -20,7 +25,6 @@ class SavedBookList extends StatefulWidget {
 class _SavedBookListState extends State<SavedBookList> {
   var users = <Livro>[];
 
-
   Widget build(BuildContext context) {
     return ListView.builder(
         padding: const EdgeInsets.all(8),
@@ -28,10 +32,12 @@ class _SavedBookListState extends State<SavedBookList> {
         itemCount: users.length,
         itemBuilder: (context, index) {
           return SavedBooksLine(
-              nomeLivro: widget.nomeLivro, qntPaginas: widget.qntPaginas, //users[index].pages,
-              genero: widget.genero, imagemCapa: widget.imagemCapa,
+              nomeLivro: widget.nomeLivro,
+              qntPaginas: widget.qntPaginas,
+              //users[index].pages,
+              genero: widget.genero,
+              imagemCapa: widget.imagemCapa,
               livroFavoritado: widget.livroFavoritado);
-        }
-    );
+        });
   }
 }
