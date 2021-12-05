@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.deepPurple,
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/onboarding',
         routes: {
           '/': (context) => HomePage(title: 'What2Read'),
           '/login': (context) => LoginPage(title: "Login"),
