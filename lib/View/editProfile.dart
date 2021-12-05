@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:what2read/Controler/Models/usuario.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:what2read/Controler/Firebase/editInfo.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key, required this.title}) : super(key: key);
@@ -17,11 +16,11 @@ class _EditProfileState extends State<EditProfile> {
   final emailController = TextEditingController();
   final senhaController = TextEditingController();
 
-  getUser(User user) async {
-    setState(() async {
-      user = auth.currentUser!;
-    });
-  }
+  // getUser(User user) async {
+  //   setState(() async {
+  //     user = auth.currentUser!;
+  //   });
+  // }
 
   @override
   void dispose() {
@@ -80,9 +79,8 @@ class _EditProfileState extends State<EditProfile> {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: NetworkImage(
-                                "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
-                              ))),
+                              image: AssetImage('assets/images/noImageAvailable.png') as ImageProvider
+                              ,),),
                     ),
                   ],
                 ),
@@ -90,8 +88,8 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField(emailController, "Email", "teste123@gmail.com", false),
-              buildTextField(senhaController, "Senha", "123456", true),
+              buildTextField(emailController, "Email", "", false),
+              buildTextField(senhaController, "Senha", "", true),
               SizedBox(
                 height: 35,
               ),
@@ -156,8 +154,8 @@ class _EditProfileState extends State<EditProfile> {
     );
   }
 
-  updateProfile(String email, String senha, User user) {
-    user.updateEmail(email);
-    user.updatePassword(senha);
-  }
+  // updateProfile(String email, String senha, User user) {
+  //   user.updateEmail(email);
+  //   user.updatePassword(senha);
+  // }
 }

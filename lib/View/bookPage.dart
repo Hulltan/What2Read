@@ -43,7 +43,7 @@ class _BookPageState extends State<BookPage> {
               height: 250.0,
               width: 400.0,
               child: Text(
-                descricao.substring(0, 500) + "...",
+                descricao,
                 textAlign: TextAlign.justify,
                 style: TextStyle(height: 1.5, color: Color(0xFF6F8398)),
               ),
