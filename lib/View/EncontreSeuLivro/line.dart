@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:what2read/View/LivrosSalvos/savedBooks.dart';
+
+import '../bookPage.dart';
 
 class Line extends StatefulWidget {
   var nomeLivro;
@@ -7,11 +8,15 @@ class Line extends StatefulWidget {
   var genero;
   var livroFavoritado;
   var imagemCapa;
+  var id;
+  var descricao;
 
   Line(
       {Key? key,
+      @required this.descricao,
       @required this.livroFavoritado,
       @required this.nomeLivro,
+      @required this.id,
       @required this.qntPaginas,
       @required this.genero,
       @required this.imagemCapa})
@@ -21,27 +26,21 @@ class Line extends StatefulWidget {
   State<StatefulWidget> createState() => _LineState();
 }
 
-class _LineState extends State<Line> {
-  List<String> nomeLivroSalvo = [];
-  List<String> qntPaginasSalvo = [];
-  List<String> generoSalvo = [];
-  List<String> imagemCapaSalvo = [];
+var favList = [];
 
+class _LineState extends State<Line> {
   @override
   Widget build(BuildContext context) {
     return buildRow(context);
   }
 
   Widget buildRow(context) {
+    var savedBook;
     return Card(
       child: ListTile(
         leading: Image.network(widget.imagemCapa),
         title: Text(
           widget.nomeLivro,
-          // style: Theme
-          //     .of(context)
-          //     .textTheme
-          //     .headline6,
         ),
         subtitle: Row(children: [
           Container(
@@ -68,24 +67,43 @@ class _LineState extends State<Line> {
         ]),
         trailing: IconButton(
           icon: Icon(
-            widget.livroFavoritado ? Icons.bookmark : Icons.bookmark_border,
-            color: widget.livroFavoritado ? Colors.yellow : null,
+            widget.livroFavoritado ? Icons.favorite : Icons.favorite_border,
+            color: widget.livroFavoritado ? Colors.red : null,
           ),
           onPressed: () {
             setState(() {
               if (widget.livroFavoritado) {
                 widget.livroFavoritado = false;
-                //print(widget.livroFavoritado);
+                favList.removeWhere((item) => item[0] == widget.id);
+                print(favList);
               } else {
                 widget.livroFavoritado = true;
-                //print(widget.livroFavoritado);
-                nomeLivroSalvo.insert(0, widget.nomeLivro);
-                qntPaginasSalvo.insert(0, widget.qntPaginas);
-                generoSalvo.insert(0, widget.genero);
-                imagemCapaSalvo.insert(0, widget.imagemCapa);
+                favList.insert(0, [
+                  widget.id,
+                  widget.nomeLivro,
+                  widget.imagemCapa,
+                  widget.genero,
+                  widget.qntPaginas,
+                  widget.livroFavoritado
+                ]);
+                print(favList);
               }
             });
           },
+        ),
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (BuildContext context) => BookPage(
+              title: 'Detalhes do livro',
+            ),
+            settings: RouteSettings(
+              arguments: {
+                'Nome': widget.nomeLivro,
+                'Imagem': widget.imagemCapa,
+                'descricao': widget.descricao
+              },
+            ),
+          ),
         ),
       ),
     );

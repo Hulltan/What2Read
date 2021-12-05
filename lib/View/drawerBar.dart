@@ -43,7 +43,7 @@ class DrawerBar extends StatelessWidget {
               style: const TextStyle(color: Colors.deepPurple),
             ),
             onTap: () {
-              // Navigator.pushNamed(context, '/savedBooks');
+              Navigator.pushNamed(context, '/livroFavorito');
             },
           ),
           ListTile(

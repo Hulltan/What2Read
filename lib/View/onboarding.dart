@@ -79,7 +79,7 @@ class _OnboardingState extends State<OnboardingPage> {
           decoration: pageDecoration,
         ),
       ],
-      onDone: () => Navigator.pushNamed(context, '/'),
+      onDone: () => Navigator.pushNamed(context, '/cadastro'),
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: true,
       skipFlex: 0,

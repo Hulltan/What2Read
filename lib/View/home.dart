@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               ),
               FloatingActionButton.extended(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/cadastro');
+                  Navigator.pushNamed(context, '/onboarding');
                 },
                 label: Text("Cadastre-se"),
               ),
