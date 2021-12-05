@@ -29,21 +29,24 @@ class _HomePageState extends State<HomePage> {
                 height: 40,
               ),
               Flexible(
-                child: Text(
-                  'What2Read é um aplicativo que te ajuda quando você tem dúvida '
-                  'quanto ao que ler. Inserindo um trecho os descrição de um livro,'
-                  'o aplicativo irá sugerir alguns títulos parecidos, ajudando '
-                  'na escolha da sua próxima leitura.',
-
-                  style: TextStyle(
-                    color: Colors.black87,
+                child: Container(
+                  child: Text(
+                    'What2Read é um aplicativo que te ajuda quando você tem dúvida '
+                        'quanto ao que ler. Inserindo um trecho os descrição de um livro,'
+                        'o aplicativo irá sugerir alguns títulos parecidos, ajudando '
+                        'na escolha da sua próxima leitura.',
+                    style: TextStyle(
+                      color: Colors.black87,
+                        fontSize: 16
+                    ),
+                    textDirection: TextDirection.ltr,
+                    textAlign: TextAlign.center,
                   ),
-                  textDirection: TextDirection.ltr,
-                  textAlign: TextAlign.center,
-                ),
+                  margin: EdgeInsets.only(left: 15, right: 15),
+                )
               ),
               SizedBox(
-                height: 60,
+                height: 40,
               ),
               FloatingActionButton.extended(
                 onPressed: () {
