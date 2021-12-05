@@ -66,6 +66,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
       )),
-    ); //floatingActionButton: // This trailing comma makes auto-formatting nicer for build methods
+    );
   }
 }

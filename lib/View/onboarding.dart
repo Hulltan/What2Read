@@ -15,14 +15,6 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingState extends State<OnboardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  get title => null;
-
-  void _onIntroEnd(context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => OnboardingPage(title: title)),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     const bodyStyle = TextStyle(fontSize: 19.0);
@@ -46,7 +38,6 @@ class _OnboardingState extends State<OnboardingPage> {
           ),
         ),
       ),
-
       pages: [
         PageViewModel(
           title: "Descreva as características do livro",
@@ -88,7 +79,7 @@ class _OnboardingState extends State<OnboardingPage> {
           decoration: pageDecoration,
         ),
       ],
-      onDone: () => _onIntroEnd(context),
+      onDone: () => Navigator.pushNamed(context, '/'),
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: true,
       skipFlex: 0,
