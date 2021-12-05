@@ -51,7 +51,7 @@ class _OnboardingState extends State<OnboardingPage>{
         PageViewModel(
           title: "Descreva as características do livro",
           body:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Descreva um breve resumo sobre que tipo de livro você está procurando.",
           image: Container(
             child: SvgPicture.asset('assets/undraw_text_field_htlv.svg', height: 160, width: 160,),
           ),
@@ -60,7 +60,7 @@ class _OnboardingState extends State<OnboardingPage>{
         PageViewModel(
           title: "Analise os livros sugeridos",
           body:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Faça uma analise dos resultados mostrados a partir da sua descrição.",
           image: Container(
             child: SvgPicture.asset('assets/undraw_browsing_online_re_umsa.svg', height: 160, width: 160,),
           ),
@@ -69,7 +69,7 @@ class _OnboardingState extends State<OnboardingPage>{
         PageViewModel(
           title: "Salve as opções favoritas",
           body:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Você pode salvar seus livros favoritos e nunca esquecer daquela história que você achou interessante.",
           image: Container(
             child: SvgPicture.asset('assets/undraw_loving_it_re_jfh4.svg', height: 160, width: 160,),
           ),
