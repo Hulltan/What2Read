@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -22,11 +23,6 @@ class _OnboardingState extends State<OnboardingPage>{
     );
   }
 
-  Widget _buildImage(String assetName, [double width = 350]) {
-    return Image.asset('assets/$assetName', width: width);
-  }
-
-
   @override
   Widget build(BuildContext context) {
     const bodyStyle = TextStyle(fontSize: 19.0);
@@ -47,7 +43,6 @@ class _OnboardingState extends State<OnboardingPage>{
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(top: 16, right: 16),
-            child: Image.asset('banner_pequeno.png'),
           ),
         ),
       ),
@@ -57,21 +52,27 @@ class _OnboardingState extends State<OnboardingPage>{
           title: "Descreva as características do livro",
           body:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          image: _buildImage('obd1.svg'),
+          image: Container(
+            child: SvgPicture.asset('assets/undraw_text_field_htlv.svg', height: 160, width: 160,),
+          ),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Analise os livros sugeridos",
           body:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          image: _buildImage('obd1.png'),
+          image: Container(
+            child: SvgPicture.asset('assets/undraw_browsing_online_re_umsa.svg', height: 160, width: 160,),
+          ),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Salve as opções favoritas",
           body:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          image: _buildImage('obd1.png'),
+          image: Container(
+            child: SvgPicture.asset('assets/undraw_loving_it_re_jfh4.svg', height: 160, width: 160,),
+          ),
           decoration: pageDecoration,
         ),
       ],
@@ -81,9 +82,9 @@ class _OnboardingState extends State<OnboardingPage>{
       skipFlex: 0,
       nextFlex: 0,
       //rtl: true, // Display as right-to-left
-      skip: const Text('Skip'),
+      skip: const Text('Pular'),
       next: const Icon(Icons.arrow_forward),
-      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+      done: const Text('Fim', style: TextStyle(fontWeight: FontWeight.w600)),
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
       controlsPadding: kIsWeb
@@ -91,7 +92,7 @@ class _OnboardingState extends State<OnboardingPage>{
           : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
-        color: Color(0xFFBDBDBD),
+        activeColor: Colors.deepPurple,
         activeSize: Size(22.0, 10.0),
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
