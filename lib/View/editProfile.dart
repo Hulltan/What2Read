@@ -14,7 +14,6 @@ class EditProfile extends StatefulWidget {
 class _EditProfileState extends State<EditProfile> {
   bool showPassword = false;
   FirebaseAuth auth = FirebaseAuth.instance;
-  late User user = auth.currentUser!;
   final emailController = TextEditingController();
   final senhaController = TextEditingController();
 
@@ -25,11 +24,6 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    getUser(user);
-  }
-
   void dispose() {
     emailController.dispose();
     senhaController.dispose();
@@ -96,8 +90,8 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField(emailController, "Email", user.email!, false),
-              buildTextField(senhaController, "Senha", "", true),
+              buildTextField(emailController, "Email", "teste123@gmail.com", false),
+              buildTextField(senhaController, "Senha", "123456", true),
               SizedBox(
                 height: 35,
               ),
@@ -105,13 +99,12 @@ class _EditProfileState extends State<EditProfile> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RaisedButton(
-                    onPressed: updateProfile(
-                        emailController.text, senhaController.text),
                     color: Colors.deepPurple,
                     padding: EdgeInsets.symmetric(horizontal: 75),
                     elevation: 2,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
+                    onPressed: () {  },
                     child: Text(
                       "Salvar",
                       style: TextStyle(
@@ -163,7 +156,7 @@ class _EditProfileState extends State<EditProfile> {
     );
   }
 
-  updateProfile(String email, String senha) {
+  updateProfile(String email, String senha, User user) {
     user.updateEmail(email);
     user.updatePassword(senha);
   }
